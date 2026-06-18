@@ -258,7 +258,7 @@
       font-weight: 600;
     }
 
-    /* Placeholder card (add photo) */
+    /* Placeholder card */
     .gallery-placeholder {
       background: #fff0f6;
       border: 2px dashed var(--pink);
@@ -565,50 +565,36 @@
     <p class="section-tag">📸 Our Memories</p>
     <h2 class="section-title">Us, In Pictures</h2>
 
-    <div class="gallery-grid" id="gallery-grid">
+    <div class="gallery-grid">
 
-      <!--
-        ╔══════════════════════════════════════════════════════╗
-        ║  HOW TO ADD YOUR PHOTOS                             ║
-        ║                                                      ║
-        ║  Copy the block below and replace:                  ║
-        ║    src=""  → your image URL or relative path        ║
-        ║    alt=""  → a short description                    ║
-        ║    data-caption="" → the sweet caption to display   ║
-        ║                                                      ║
-        ║  You can add as many blocks as you like!            ║
-        ╚══════════════════════════════════════════════════════╝
-
-        EXAMPLE (uncomment and fill in):
-
-        <div class="gallery-card" onclick="openLightbox(this)">
-          <img src="YOUR_IMAGE_URL_HERE" alt="Our first date" data-caption="Our very first date 🌸" />
-          <div class="cap">Our first date 🌸</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox(this)">
-          <img src="YOUR_IMAGE_URL_HERE" alt="caption" data-caption="Caption here 💕" />
-          <div class="cap">Caption here 💕</div>
-        </div>
-      -->
-
-      <!-- Placeholder cards — remove these once you add real photos -->
-      <div class="gallery-placeholder">
-        <span class="icon">🖼️</span>
-        <strong>Add Your Photo Here</strong>
-        <span>Replace this with your image URL in the HTML</span>
+      <!-- Photo #1 -->
+      <div class="gallery-card" onclick="openLightbox(this)">
+        <img
+          src="[raw.githubusercontent.com](https://raw.githubusercontent.com/kdproject2026/mslove/2516f3ef1344cdaef7e85e57da5bae56e5b003db/DSC02513.jpg)"
+          alt="Beautiful Memory"
+          data-caption="One of our favorite memories together ❤️"
+        />
+        <div class="cap">One of our favorite memories together ❤️</div>
       </div>
 
-      <div class="gallery-placeholder">
-        <span class="icon">📷</span>
-        <strong>Add Your Photo Here</strong>
-        <span>Each photo can have its own sweet caption</span>
+      <!-- Photo #2 -->
+      <div class="gallery-card" onclick="openLightbox(this)">
+        <img
+          src="[raw.githubusercontent.com](https://raw.githubusercontent.com/kdproject2026/mslove/2516f3ef1344cdaef7e85e57da5bae56e5b003db/DSC02498.jpg)"
+          alt="Special Moment"
+          data-caption="Every moment with you feels like home 💕"
+        />
+        <div class="cap">Every moment with you feels like home 💕</div>
       </div>
 
-      <div class="gallery-placeholder">
-        <span class="icon">💑</span>
-        <strong>Add Your Photo Here</strong>
-        <span>As many memories as you want 💕</span>
+      <!-- Photo #3 -->
+      <div class="gallery-card" onclick="openLightbox(this)">
+        <img
+          src="[raw.githubusercontent.com](https://raw.githubusercontent.com/kdproject2026/mslove/2516f3ef1344cdaef7e85e57da5bae56e5b003db/DSC02442.jpg)"
+          alt="Forever Us"
+          data-caption="A love story written by God ✨"
+        />
+        <div class="cap">A love story written by God ✨</div>
       </div>
 
     </div>
