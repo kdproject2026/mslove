@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 20th Monthsary, Love 💕</title>
+  <style>
+    @import url('[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;500;600&display=swap)');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink: #f472b6;
+      --rose: #fb7185;
+      --deep: #be185d;
+      --cream: #fff1f5;
+      --gold: #f59e0b;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--cream);
+      overflow-x: hidden;
+      color: #3b0764;
+    }
+
+    /* ── Floating hearts background ── */
+    #hearts-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .heart-float {
+      position: absolute;
+      bottom: -60px;
+      font-size: 1.5rem;
+      animation: floatUp linear infinite;
+      opacity: 0.6;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+      100% { transform: translateY(-110vh) rotate(30deg); opacity: 0; }
+    }
+
+    /* ── Cursor sparkle ── */
+    .sparkle {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.2rem;
+      animation: sparkleOut 0.8s forwards;
+      z-index: 9999;
+    }
+    @keyframes sparkleOut {
+      0%   { transform: scale(1) translateY(0); opacity: 1; }
+      100% { transform: scale(0) translateY(-40px); opacity: 0; }
+    }
+
+    /* ── Layout ── */
+    main { position: relative; z-index: 1; }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(135deg, #fce4ec 0%, #fdf2f8 50%, #ede9fe 100%);
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      background: linear-gradient(135deg, var(--pink), var(--rose));
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 8px 24px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(244,114,182,0.5); }
+      50%       { box-shadow: 0 0 0 14px rgba(244,114,182,0); }
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 8vw, 5.5rem);
+      line-height: 1.1;
+      background: linear-gradient(135deg, var(--deep), var(--rose), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #9d174d;
+      margin-bottom: 10px;
+    }
+
+    .hero-date {
+      font-size: 0.9rem;
+      color: #c084fc;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .countdown-box {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .count-unit {
+      background: white;
+      border-radius: 16px;
+      padding: 16px 20px;
+      min-width: 80px;
+      box-shadow: 0 4px 20px rgba(244,114,182,0.2);
+      text-align: center;
+    }
+    .count-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--deep);
+      display: block;
+      line-height: 1;
+    }
+    .count-label {
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #c084fc;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .scroll-hint {
+      font-size: 0.85rem;
+      color: var(--pink);
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(8px); }
+    }
+
+    /* ── POEM ── */
+    #poem {
+      background: linear-gradient(160deg, #fdf4ff 0%, #fce7f3 100%);
+      text-align: center;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--deep);
+      margin-bottom: 40px;
+    }
+
+    .poem-card {
+      background: white;
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 680px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(190,24,93,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .poem-card::before {
+      content: '❝';
+      position: absolute;
+      top: -10px; left: 20px;
+      font-size: 8rem;
+      color: #fce7f3;
+      font-family: Georgia, serif;
+      line-height: 1;
+      z-index: 0;
+    }
+    .poem-card p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 2;
+      color: #4a044e;
+      position: relative;
+      z-index: 1;
+    }
+    .poem-card .signature {
+      margin-top: 28px;
+      font-family: 'Quicksand', sans-serif;
+      font-style: normal;
+      font-size: 0.9rem;
+      color: var(--pink);
+      font-weight: 600;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      background: linear-gradient(160deg, #fff0f6 0%, #f0f4ff 100%);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 960px;
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    .gallery-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(244,114,182,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .gallery-card:hover {
+      transform: translateY(-6px) rotate(-1deg);
+      box-shadow: 0 12px 40px rgba(244,114,182,0.3);
+    }
+    .gallery-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-card .cap {
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      color: #9d174d;
+      font-weight: 600;
+    }
+
+    /* Placeholder card (add photo) */
+    .gallery-placeholder {
+      background: #fff0f6;
+      border: 2px dashed var(--pink);
+      border-radius: 20px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--pink);
+      font-size: 0.88rem;
+      padding: 20px;
+      text-align: center;
+    }
+    .gallery-placeholder .icon { font-size: 2.5rem; }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 75vh;
+      border-radius: 16px;
+      object-fit: contain;
+      box-shadow: 0 0 60px rgba(244,114,182,0.4);
+    }
+    #lightbox .lb-cap {
+      color: white;
+      font-size: 1rem;
+      text-align: center;
+      max-width: 500px;
+    }
+    #lightbox .lb-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+
+    /* ── WEDDING COUNTDOWN ── */
+    #wedding {
+      background: linear-gradient(135deg, #1e0a2e 0%, #4a044e 50%, #831843 100%);
+      color: white;
+      text-align: center;
+    }
+    #wedding .section-tag { color: #f9a8d4; }
+    #wedding .section-title { color: white; }
+
+    .wedding-date-display {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: #fcd34d;
+      margin-bottom: 32px;
+      letter-spacing: 2px;
+    }
+
+    .w-count-box {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .w-unit {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 20px 28px;
+      min-width: 90px;
+      text-align: center;
+    }
+    .w-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #fcd34d;
+      display: block;
+      line-height: 1;
+    }
+    .w-label {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #f9a8d4;
+      margin-top: 6px;
+      display: block;
+    }
+
+    .wedding-msg {
+      font-size: 1.05rem;
+      color: #fce7f3;
+      max-width: 480px;
+      line-height: 1.8;
+    }
+    .wedding-msg strong { color: #fcd34d; }
+
+    /* ── FINAL MESSAGE ── */
+    #final {
+      background: linear-gradient(135deg, #fff1f5 0%, #fdf4ff 100%);
+      text-align: center;
+    }
+
+    .final-heart {
+      font-size: 5rem;
+      animation: heartbeat 1.2s infinite;
+      display: block;
+      margin-bottom: 20px;
+    }
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); }
+      14%      { transform: scale(1.2); }
+      28%      { transform: scale(1); }
+      42%      { transform: scale(1.15); }
+      70%      { transform: scale(1); }
+    }
+
+    .final-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 5vw, 3rem);
+      color: var(--deep);
+      margin-bottom: 12px;
+    }
+    .final-text {
+      font-size: 1.1rem;
+      color: #9d174d;
+      margin-bottom: 40px;
+      max-width: 400px;
+    }
+
+    .confetti-btn {
+      background: linear-gradient(135deg, var(--pink), var(--rose));
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(244,114,182,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .confetti-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 12px 32px rgba(244,114,182,0.5);
+    }
+
+    /* ── Confetti canvas ── */
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 500;
+    }
+
+    /* ── Nav dots ── */
+    #nav-dots {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 100;
+    }
+    .nav-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(244,114,182,0.35);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+    }
+    .nav-dot.active {
+      background: var(--deep);
+      transform: scale(1.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      .poem-card { padding: 32px 24px; }
+      .poem-card p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating hearts -->
+<div id="hearts-bg"></div>
+
+<!-- Confetti canvas -->
+<canvas id="confetti-canvas"></canvas>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt="" />
+  <p class="lb-cap" id="lb-cap"></p>
+</div>
+
+<!-- Nav dots -->
+<nav id="nav-dots">
+  <button class="nav-dot active" onclick="scrollToSection('hero')" title="Home"></button>
+  <button class="nav-dot" onclick="scrollToSection('poem')" title="Message"></button>
+  <button class="nav-dot" onclick="scrollToSection('gallery')" title="Photos"></button>
+  <button class="nav-dot" onclick="scrollToSection('wedding')" title="Wedding"></button>
+  <button class="nav-dot" onclick="scrollToSection('final')" title="Love"></button>
+</nav>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <span class="hero-badge">✨ A Special Day ✨</span>
+    <h1 class="hero-title">Happy 20th<br/>Monthsary</h1>
+    <p class="hero-sub">To the one who makes every day worth living —</p>
+    <p class="hero-sub" style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.3rem; color:#be185d;">
+      Karla Bethany 💕
+    </p>
+    <p class="hero-date">October 19, 2024 → June 19, 2026</p>
+
+    <div class="countdown-box">
+      <div class="count-unit">
+        <span class="count-num" id="c-months">20</span>
+        <span class="count-label">Months</span>
+      </div>
+      <div class="count-unit">
+        <span class="count-num" id="c-days">—</span>
+        <span class="count-label">Days</span>
+      </div>
+      <div class="count-unit">
+        <span class="count-num" id="c-hours">—</span>
+        <span class="count-label">Hours</span>
+      </div>
+      <div class="count-unit">
+        <span class="count-num" id="c-mins">—</span>
+        <span class="count-label">Minutes</span>
+      </div>
+    </div>
+
+    <span class="scroll-hint">↓ scroll down, love ↓</span>
+  </section>
+
+  <!-- ── POEM ── -->
+  <section id="poem">
+    <p class="section-tag">💌 A Message for You</p>
+    <h2 class="section-title">Words from My Heart</h2>
+    <div class="poem-card">
+      <p>
+        Twenty months of you — and still<br/>
+        I find myself breathless at the gift of it.<br/>
+        Not a choice I'd ever take back,<br/>
+        not a moment I'd trade for silence.<br/><br/>
+
+        You are the reason I rise with purpose,<br/>
+        the quiet fire behind everything I build —<br/>
+        every dream I chase, I chase toward <em>us</em>,<br/>
+        toward a future I cannot wait to hold.<br/><br/>
+
+        Yes, we have weathered our storms.<br/>
+        We have bent — but never broken —<br/>
+        because love is not the absence of the fight;<br/>
+        it is choosing each other after.<br/>
+        And every single time, I choose you.<br/><br/>
+
+        The world is wide, my love,<br/>
+        and I will walk every road of it with you —<br/>
+        from quiet mornings to every city<br/>
+        we haven't yet mapped between us.<br/><br/>
+
+        My truest words, my deepest vows,<br/>
+        I am saving for the altar on July 10.<br/>
+        But know this, here and now:<br/>
+        You are a miracle I am still learning<br/>
+        how to deserve — and I will never stop trying.<br/><br/>
+
+        I love you, love.<br/>
+        In every month, in every life.<br/>
+      </p>
+      <p class="signature">— Always yours 🤍</p>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery">
+    <p class="section-tag">📸 Our Memories</p>
+    <h2 class="section-title">Us, In Pictures</h2>
+
+    <div class="gallery-grid" id="gallery-grid">
+
+      <!--
+        ╔══════════════════════════════════════════════════════╗
+        ║  HOW TO ADD YOUR PHOTOS                             ║
+        ║                                                      ║
+        ║  Copy the block below and replace:                  ║
+        ║    src=""  → your image URL or relative path        ║
+        ║    alt=""  → a short description                    ║
+        ║    data-caption="" → the sweet caption to display   ║
+        ║                                                      ║
+        ║  You can add as many blocks as you like!            ║
+        ╚══════════════════════════════════════════════════════╝
+
+        EXAMPLE (uncomment and fill in):
+
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="YOUR_IMAGE_URL_HERE" alt="Our first date" data-caption="Our very first date 🌸" />
+          <div class="cap">Our first date 🌸</div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="YOUR_IMAGE_URL_HERE" alt="caption" data-caption="Caption here 💕" />
+          <div class="cap">Caption here 💕</div>
+        </div>
+      -->
+
+      <!-- Placeholder cards — remove these once you add real photos -->
+      <div class="gallery-placeholder">
+        <span class="icon">🖼️</span>
+        <strong>Add Your Photo Here</strong>
+        <span>Replace this with your image URL in the HTML</span>
+      </div>
+
+      <div class="gallery-placeholder">
+        <span class="icon">📷</span>
+        <strong>Add Your Photo Here</strong>
+        <span>Each photo can have its own sweet caption</span>
+      </div>
+
+      <div class="gallery-placeholder">
+        <span class="icon">💑</span>
+        <strong>Add Your Photo Here</strong>
+        <span>As many memories as you want 💕</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── WEDDING COUNTDOWN ── -->
+  <section id="wedding">
+    <p class="section-tag">💍 Coming Very Soon</p>
+    <h2 class="section-title">See You at the Altar</h2>
+    <p class="wedding-date-display">July 10, 2026</p>
+
+    <div class="w-count-box">
+      <div class="w-unit">
+        <span class="w-num" id="w-days">—</span>
+        <span class="w-label">Days</span>
+      </div>
+      <div class="w-unit">
+        <span class="w-num" id="w-hours">—</span>
+        <span class="w-label">Hours</span>
+      </div>
+      <div class="w-unit">
+        <span class="w-num" id="w-mins">—</span>
+        <span class="w-label">Minutes</span>
+      </div>
+      <div class="w-unit">
+        <span class="w-num" id="w-secs">—</span>
+        <span class="w-label">Seconds</span>
+      </div>
+    </div>
+
+    <p class="wedding-msg">
+      In just a few weeks, I get to call you <strong>my wife</strong>.<br/>
+      Everything I have worked for, everything I have prayed for —<br/>
+      it all leads to you, walking toward me.<br/>
+      <strong>I cannot wait.</strong>
+    </p>
+  </section>
+
+  <!-- ── FINAL ── -->
+  <section id="final">
+    <span class="final-heart">❤️</span>
+    <h2 class="final-name">Karla Bethany F. Miralles</h2>
+    <p class="final-text">
+      You are loved. You are chosen. You are my forever.
+    </p>
+    <button class="confetti-btn" onclick="launchConfetti()">
+      🎉 Celebrate with Me!
+    </button>
+  </section>
+
+</main>
+
+<script>
+  /* ── Floating hearts ── */
+  const heartsContainer = document.getElementById('hearts-bg');
+  const heartEmojis = ['❤️','🩷','💕','💖','💗','💓','💝','🌸','✨'];
+  function spawnHeart() {
+    const el = document.createElement('div');
+    el.className = 'heart-float';
+    el.textContent = heartEmojis[Math.floor(Math.random()*heartEmojis.length)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.fontSize = (0.9 + Math.random()*1.4) + 'rem';
+    const dur = 7 + Math.random()*8;
+    el.style.animationDuration = dur + 's';
+    el.style.animationDelay = '0s';
+    heartsContainer.appendChild(el);
+    setTimeout(() => el.remove(), dur * 1000);
+  }
+  setInterval(spawnHeart, 600);
+
+  /* ── Cursor sparkles ── */
+  document.addEventListener('mousemove', (e) => {
+    if (Math.random() > 0.85) {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.textContent = ['✨','💫','⭐','🌸','💕'][Math.floor(Math.random()*5)];
+      s.style.left = e.clientX + 'px';
+      s.style.top  = e.clientY + 'px';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 800);
+    }
+  });
+
+  /* ── Countdown from Oct 19 2024 ── */
+  function updateMonthsaryCountdown() {
+    const start = new Date('2024-10-19T00:00:00');
+    const now = new Date();
+    const diff = now - start;
+    const totalSecs = Math.floor(diff / 1000);
+    const mins  = Math.floor(totalSecs / 60);
+    const hours = Math.floor(mins / 60);
+    const days  = Math.floor(hours / 24);
+    document.getElementById('c-days').textContent  = days;
+    document.getElementById('c-hours').textContent = hours % 24;
+    document.getElementById('c-mins').textContent  = mins % 60;
+  }
+  updateMonthsaryCountdown();
+  setInterval(updateMonthsaryCountdown, 60000);
+
+  /* ── Wedding countdown to July 10 2026 ── */
+  function updateWeddingCountdown() {
+    const wedding = new Date('2026-07-10T00:00:00');
+    const now = new Date();
+    const diff = wedding - now;
+    if (diff <= 0) {
+      document.getElementById('w-days').textContent  = '🎊';
+      document.getElementById('w-hours').textContent = '🎊';
+      document.getElementById('w-mins').textContent  = '🎊';
+      document.getElementById('w-secs').textContent  = '🎊';
+      return;
+    }
+    const totalSecs = Math.floor(diff / 1000);
+    const secs  = totalSecs % 60;
+    const mins  = Math.floor(totalSecs / 60) % 60;
+    const hours = Math.floor(totalSecs / 3600) % 24;
+    const days  = Math.floor(totalSecs / 86400);
+    document.getElementById('w-days').textContent  = days;
+    document.getElementById('w-hours').textContent = hours;
+    document.getElementById('w-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('w-secs').textContent  = String(secs).padStart(2,'0');
+  }
+  updateWeddingCountdown();
+  setInterval(updateWeddingCountdown, 1000);
+
+  /* ── Nav dots ── */
+  const sections = ['hero','poem','gallery','wedding','final'];
+  const dots = document.querySelectorAll('.nav-dot');
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = sections.indexOf(entry.target.id);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: 0.5 });
+  sections.forEach(id => observer.observe(document.getElementById(id)));
+
+  /* ── Lightbox ── */
+  function openLightbox(card) {
+    const img = card.querySelector('img');
+    document.getElementById('lb-img').src = img.src;
+    document.getElementById('lb-img').alt = img.alt;
+    document.getElementById('lb-cap').textContent = img.dataset.caption || '';
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  /* ── Confetti ── */
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  let confettiParticles = [];
+  let animating = false;
+
+  function resizeCanvas() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  function launchConfetti() {
+    confettiParticles = [];
+    for (let i = 0; i < 180; i++) {
+      confettiParticles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        r: 4 + Math.random() * 7,
+        d: Math.random() * 180,
+        color: `hsl(${Math.random()*360},80%,65%)`,
+        tilt: Math.random()*10 - 10,
+        tiltAngle: 0,
+        tiltSpeed: 0.1 + Math.random()*0.1
+      });
+    }
+    if (!animating) { animating = true; drawConfetti(); }
+    setTimeout(() => { animating = false; ctx.clearRect(0,0,canvas.width,canvas.height); }, 4000);
+  }
+
+  function drawConfetti() {
+    if (!animating) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confettiParticles.forEach(p => {
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.ellipse(p.x, p.y, p.r, p.r * 0.4, p.tilt, 0, 2*Math.PI);
+      ctx.fill();
+      p.y += 3 + Math.cos(p.d) * 1.5;
+      p.x += Math.sin(p.d) * 2;
+      p.d += 0.02;
+      p.tilt += p.tiltSpeed;
+    });
+    requestAnimationFrame(drawConfetti);
+  }
+</script>
+
+</body>
+</html>
